@@ -15,14 +15,17 @@ const shopContextProvider = (props) => {
     const [products, setProducts] = useState([])
     const navigate = useNavigate()
     const [token, setToken] = useState('')
+    const [loading, setLoading] = useState(true)
+
     const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
     const fetchAllProduct = async () => {
         try {
+            setLoading(true)
             const response = await axios.get(backendUrl + '/api/product/list')
             if (response.data.success) {
                 setProducts(response.data.products)
-                console.log(response.data.products);
+                setLoading(false)
             } else {
                 toast.error(response.data.message)
             }
@@ -69,9 +72,11 @@ const shopContextProvider = (props) => {
 
     const getUsercart = async (token) => {
         try {
+            setLoading(true)
             const response = await axios.post(backendUrl + '/api/cart/get', {}, { headers: { token } })
             if (response.data.success) {
                 setCartitems(response.data.cartData)
+                setLoading(false)
             }
         } catch (error) {
             console.log(error);
@@ -159,7 +164,8 @@ const shopContextProvider = (props) => {
         getTotalcartAmount,
         navigate,
         backendUrl,
-        setCartitems
+        setCartitems,
+        loading
     }
     return (
         <shopContext.Provider value={value}>

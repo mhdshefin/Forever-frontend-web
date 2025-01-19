@@ -116,20 +116,20 @@ const PlaceOrder = () => {
       </div>
 
       <div className='mt-8 '>
-        <div className='mt-8 min-w-96'>
+        <div className='mt-8 sm:min-w-96 min-w-72'>
           <CartTotal />
         </div>
 
         <div className='mt-12'>
           <Title text1={'PAYMENT'} text2={'METHOD'} />
-          <div className='flex justify-between flex-col lg:flex-row min-w-96'>
+          <div className='flex justify-between flex-col lg:flex-row min-w-80 gap-3'>
 
-            <div onClick={() => setmethod('stripe')} className='min-w-[45%] flex items-center border gap-3 p-2 px-3 cursor-pointer'>
+            <div onClick={() => setmethod('stripe')} className='sm:min-w-[45%] max-w-80 flex items-center border gap-3 p-2 px-3 cursor-pointer'>
               <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'stripe' ? 'bg-green-400' : ''} `}></p>
               <img className='h-5 mx-1.5' src={assets.stripe_logo} alt="" />
             </div>
 
-            <div onClick={() => setmethod('cod')} className='flex min-w-[45%] items-center border gap-3 p-2 px-3 cursor-pointer'>
+            <div onClick={() => setmethod('cod')} className='flex sm:min-w-[45%] max-w-80 items-center border gap-3 p-2 px-3 cursor-pointer'>
               <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'cod' ? 'bg-green-400' : ''} `}></p>
               <p className='text-gray-500 text-sm font-medium mx-1.5'>Cash On delivery</p>
             </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Home from './Pages/Home'
 import Cart from './Pages/Cart'
@@ -15,11 +15,30 @@ import Search from './Components/Search'
 import Verify from './Pages/verify'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { shopContext } from './Context/ShopContext'
+import Spinner from './Components/Spinner'
 
 const App = () => {
+
+  const { loading } = useContext(shopContext)
+
+  useEffect(() => {
+    if (loading) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
+    
+  }, [loading])
+
   return (
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
       <ToastContainer />
+      {loading ? <Spinner /> : <></>}
       <Navbar />
       <Search />
       <Routes>
