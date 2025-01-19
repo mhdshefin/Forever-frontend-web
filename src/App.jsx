@@ -10,7 +10,7 @@ import Product from './Pages/Product'
 import About from './Pages/About'
 import PlaceOrder from './Pages/PlaceOrder'
 import Navbar from './Components/Navbar'
-import Footer from './Components/footer'
+import Footer from './Components/Footer'
 import Search from './Components/Search'
 import Verify from './Pages/verify'
 import { ToastContainer } from 'react-toastify';
