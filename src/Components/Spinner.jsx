@@ -7,7 +7,7 @@ const cssOfSpinner = {
 
 const Spinner = () => {
   return (
-    <div className='w-screen h-screen bg-[#ffffff91] flex items-center justify-center fixed z-50'> 
+    <div className='w-full h-screen bg-[#ffffff91] flex items-center justify-center fixed z-50 top-0 left-0 p-0 m-0'> 
         <ClipLoader color="tomato" size={window.innerWidth<400?120:150} cssOverride={cssOfSpinner}/>
     </div>
   )
